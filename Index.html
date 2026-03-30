@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array Analyzer</title>
+</head>
+<body>
+
+<h2>Array Analyzer</h2>
+
+<input type="text" id="arrayInput" placeholder="Enter numbers (1,2,3)">
+<button onclick="analyzeArray()">Analyze</button>
+
+<p id="result"></p>
+
+<script>
+function analyzeArray() {
+    var input = document.getElementById("arrayInput").value;
+
+    if (input == "") {
+        document.getElementById("result").innerText = "Enter values";
+        return;
+    }
+
+    var arr = input.split(",").map(Number);
+
+    var sum = 0;
+    var max = arr[0];
+
+    for (var i = 0; i < arr.length; i++) {
+        sum += arr[i];
+
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+
+    document.getElementById("result").innerText =
+        "Sum: " + sum + " | Max: " + max;
+}
+</script>
+
+</body>
+</html>
